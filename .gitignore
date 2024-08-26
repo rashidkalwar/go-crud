@@ -1,0 +1,26 @@
+# Go build artifacts
+*.exe
+*.test
+*.out
+
+# Dependency directories
+vendor/
+
+# Air hot reload files
+.air
+.air.toml
+
+# Environment variable files
+.env
+
+# Logs
+*.log
+
+# Git files
+.git
+
+# Temporary files
+tmp/
+*.tmp
+/bin/
+/pkg/

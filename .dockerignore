@@ -1,0 +1,26 @@
+# Ignore Docker-related files
+.dockerignore
+.Dockerfile
+docker-compose.yml
+
+# Ignore Go build artifacts
+*.exe
+*.test
+*.out
+
+# Ignore Go module files (cached versions)
+**/vendor
+
+# Ignore Air and other developmen-related files
+.air*
+.env
+.env.example
+*.log
+
+# Ignore Git files
+.git
+.gitignore
+
+# Ignore temporary files
+tmp
+build
