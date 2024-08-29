@@ -43,7 +43,15 @@ Ensure that you have Go installed. Download the necessary dependencies using the
 go mod tidy
 ```
 
-### 4. Run the application
+### 4. Make database migrations
+
+Before running the API, Make sure to make all the migrations to the database by running the following command:
+
+```bash
+go run migrate/migrate.go
+```
+
+### 5. Run the application
 
 To start the application locally, run the following command,
 Once the application is running, you can access the API at `http://localhost:8080`
@@ -74,7 +82,7 @@ If you have docker and docker-compose installed you don't need to do much inorde
 docker-compose up --build
 ```
 
-### 5. Testing the API
+### 6. Testing the API
 
 You can use tools like [Postman](https://www.postman.com) or [cURL](https://curl.se/) to test the API endpoints. Below is an example using "cURL":
 
