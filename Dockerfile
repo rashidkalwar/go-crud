@@ -13,8 +13,11 @@ RUN go mod download
 # Copy the rest of the source code into container
 COPY . .
 
-# Build the Go app
+# Build the Go app binary.
 RUN go build -o go-crud ./cmd
+
+# Build the migration binary
+RUN go build -o migrate ./migrate/migrate.go
 
 # Use a minimal image for running the application
 FROM alpine:3.18
@@ -22,11 +25,12 @@ FROM alpine:3.18
 # Set the Current Working Directory inside the contianer
 WORKDIR /app
 
-# Copy the pre-built binary file from builder stage
+# Copy the pre-built binary files from builder stage
 COPY --from=builder /app/go-crud .
+COPY --from=builder /app/migrate .
 
 # Expose the port the app runs on
 EXPOSE ${PORT}
 
-# Command to run the executable
-CMD ["./go-crud"]
+# Command to run the migrations and then start the server
+CMD ["sh", "-c", "./migrate && ./go-crud"]
